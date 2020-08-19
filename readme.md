@@ -102,9 +102,6 @@ create (b)-[t:Teaches]->(IA)
    return b,IA,t
 ```
 
-
-​      
-
 ### 3. loading data
 
 1. from URL
@@ -158,14 +155,12 @@ match (t:Tweet {id:line.tweet_id})
 merge (u)-[r:tweeted]->(t)
 set r.type = line.post_type
 ```
+2. query the result
+     1. get the number of tweets for 1 user
 
-  2. query the result
-     
-              1. get the number of tweets for 1 user
-
-       ```cypher
-     match (n:User{id:"2912754262"})-[r]-(t) return n.name,count(distinct r)            
-     ```
+        ```cypher
+        match (n:User{id:"2912754262"})-[r]-(t) return n.name,count(distinct r)            
+        ```
      
      2. get the first 100 tweets from  a user 
      
@@ -174,39 +169,26 @@ set r.type = line.post_type
         ```
         
      3. on your own query the number of users and the average number of tweets
-     
-        
-     
-  3. Loading data from file:
-        You can also use the same procedure above on a file instead of a URL. To do this we  need to transfer the file to the NEO4j inbox on our ec2
 
-          1. send data file to server
+3. Loading data from file: You can also use the same procedure above on a file instead of a URL. To do this we  need to transfer the file to the NEO4j inbox on our ec2
+      
+      1. send data file to server
                 Their are multiple ways of transferring files to your EC2 instance. two are well described in this article:
                 https://asf.alaska.edu/how-to/data-recipes/moving-files-into-and-out-of-an-aws-ec2-instance-windows/
-
-          2. download data 
-                For this next portion we will utilize selection of additional  twitter data from Kaggle
-
-                https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
+                
+      2. download data 
+                For this next portion we will utilize selection of additional  twitter data from Kaggle https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
                 it is in the data  folder of this repo [data](data/tweet-data.csv)
-        
                   1. using putty secure copy
-        
-                       1. make sure you have the key you associated with the EC2 at launch .pkk
-        
-                       2. Copy file to home directory of ec2
-                          because of permissions we won't move the file into our home directory and the login and move the file where it needs to be for neo4j to access it
-        
-                              1. in the command line
-                                 `pscp -i {PATH TO KEY} {PATH TO .CSV}  ubuntu@{EC2 PUBLIC DNS}:tweets.csv`
-        
-                       3. SSH into ec2 using putty 
-        
-                              1. move file to proper location 
-                                 `mv tweet_data.csv /var/lib/neo4j/import`
-        
-                       4. return to neo4j console 
-                          check that you can now access the file
+                    * make sure you have the key you associated with the EC2 at launch .pkk
+                    * Copy file to home directory of ec2 because of permissions we won't move the file into our home directory and the login and move the file where it needs 
+                    to be for neo4j to access it
+                  2. in the command line, type
+                                 ```pscp -i {PATH TO KEY} {PATH TO .CSV}  ubuntu@{EC2 PUBLIC DNS}:tweets.csv```
+                  3. SSH into ec2 using putty 
+                      * move file to proper location 
+                                 ```mv tweet_data.csv /var/lib/neo4j/import```
+                  4. return to neo4j console: check that you can now access the file
         
                           ```cypher
                           // count of records
@@ -216,9 +198,6 @@ set r.type = line.post_type
                           // check first 5 line-sample with header-mapping
                           LOAD CSV WITH HEADERS FROM "file:///tweets.csv" AS line
                           RETURN line
-                          LIIT 5;
-                          
-                          
+                          LIIT 5;                         
                           ```
-                     
-                        5. use the load file procedure from above to load the additional users and tweets into our neo4j database
+5. use the load file procedure from above to load the additional users and tweets into our neo4j database
