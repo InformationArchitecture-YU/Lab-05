@@ -54,8 +54,9 @@ next we will log into the neo4j console via the bowser and start learning about 
    2. password: neo4j
    you will be prompted to make a new password
    
+
 ![neo4j_browser_logged_in](img/neo4j_browser_logged_in.png)
-   
+
    
 
 ### 2. Cypher:
@@ -102,7 +103,7 @@ create (b)-[t:Teaches]->(IA)
 ```
 
 
-      
+​      
 
 ### 3. loading data
 
@@ -184,6 +185,40 @@ set r.type = line.post_type
                 https://asf.alaska.edu/how-to/data-recipes/moving-files-into-and-out-of-an-aws-ec2-instance-windows/
 
                   1. download data 
-                  2.  using putty secure copy
+                     For this next portion we will utilize selection of additional  twitter data from Kaggle
 
+                     https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
+                     it is in the data  folder of this repo [data](data/tweet-data.csv)
                 
+                  2. using putty secure copy
+                
+                       1. make sure you have the key you associated with the EC2 at launch .pkk
+                
+                       2. Copy file to home directory of ec2
+                          because of permissions we won't move the file into our home directory and the login and move the file where it need to be 
+                
+                              1. in the command line
+                                 `pscp -i {PATH TO KEY} {PATH TO .CSV}  ubuntu@{EC2 PUBLIC DNS}:tweets.csv`
+                
+                       3. SSH into ec2 using putty 
+                
+                              1. move file to proper location 
+                                 `mv tweet_data.csv /var/lib/neo4j/import`
+                
+                       4. return to neo4j console 
+                          check that you can now access the file
+                
+                          ```
+                          // count of records
+                          lOAD CSV FROM "file:///tweets.csv" AS line
+                          RETURN count(*);
+                          
+                          // check first 5 line-sample with header-mapping
+                          LOAD CSV WITH HEADERS FROM "file:///tweets.csv" AS line
+                          RETURN line
+                          LIIT 5;
+                          
+                          
+                          ```
+                
+                       5. use the load file procedure from above to load the additional users and tweets into our neo4j database 
