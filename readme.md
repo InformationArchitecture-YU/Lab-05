@@ -178,36 +178,36 @@ set r.type = line.post_type
         
      
   3. Loading data from file:
-        You can also use the same procedure above on a file instead of a URL. To do this we  need to transfer the file to the NEO4j inbox on our ect 
+        You can also use the same procedure above on a file instead of a URL. To do this we  need to transfer the file to the NEO4j inbox on our ec2
 
           1. send data file to server
                 Their are multiple ways of transferring files to your EC2 instance. two are well described in this article:
                 https://asf.alaska.edu/how-to/data-recipes/moving-files-into-and-out-of-an-aws-ec2-instance-windows/
 
-                  1. download data 
-                     For this next portion we will utilize selection of additional  twitter data from Kaggle
+          2. download data 
+                For this next portion we will utilize selection of additional  twitter data from Kaggle
 
-                     https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
-                     it is in the data  folder of this repo [data](data/tweet-data.csv)
-                
-                  2. using putty secure copy
-                
+                https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
+                it is in the data  folder of this repo [data](data/tweet-data.csv)
+        
+                  1. using putty secure copy
+        
                        1. make sure you have the key you associated with the EC2 at launch .pkk
-                
+        
                        2. Copy file to home directory of ec2
-                          because of permissions we won't move the file into our home directory and the login and move the file where it need to be 
-                
+                          because of permissions we won't move the file into our home directory and the login and move the file where it needs to be for neo4j to access it
+        
                               1. in the command line
                                  `pscp -i {PATH TO KEY} {PATH TO .CSV}  ubuntu@{EC2 PUBLIC DNS}:tweets.csv`
-                
+        
                        3. SSH into ec2 using putty 
-                
+        
                               1. move file to proper location 
                                  `mv tweet_data.csv /var/lib/neo4j/import`
-                
+        
                        4. return to neo4j console 
                           check that you can now access the file
-                
+        
                           ```
                           // count of records
                           lOAD CSV FROM "file:///tweets.csv" AS line
@@ -220,5 +220,5 @@ set r.type = line.post_type
                           
                           
                           ```
-                
+        
                        5. use the load file procedure from above to load the additional users and tweets into our neo4j database 
