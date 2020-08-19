@@ -14,21 +14,21 @@ In this lab we will deploy an ec2 sever with Neo4j installed utilizing the Amazo
       1. first log into your aws console 
       2. go to the AWS marketplace https://aws.amazon.com/marketplace
       3. search for neo4j graph database (make sure to select community edition)
-![AWS marketpalce AMI](img\AWS marketpalce AMI.png)
+![AWS marketpalce AMI](img/AWS_marketplace_AMI.png)
 
  2. Subscribe and configure
     We will now subscribe to neo4j service which will walk us through the steps of deploying an EC2 instance with a Special AMI (amazon machine image) which will already contain neo4j running and ready as soon as the EC2 is deployed.
     1. configure
            in the configure you will select your image  software versions and AWS location please mimic the selections below 
 
-    ![configure](img\configure.png)
+    ![configure](img/configure.png)
 
     2. create security group and select options
-        ![Launch](img\Launch.png)
+        ![Launch](img/Launch.png)
 
     3. create or select key
 create a new key or select one you have previous created and have access to  (you will need this to log into your EC2)
-        ![keygen](img\keygen.png)
+        ![keygen](img/keygen.png)
     4. deploy
         select deploy and your new neo4j EC2 will be ready to use in a min or two
 
@@ -45,7 +45,7 @@ next we will log into the neo4j console via the bowser and start learning about 
 2. http://{public dns}:7474/ 
    head to the EC2 console so you can get the dns of your new EC2 sever and then put it into chrome you should see the screen below 
 
-   ![neo4j_browser](img\neo4j_browser.png)
+   ![neo4j_browser](img/neo4j_browser.png)
    
 3. log into server
 
@@ -54,7 +54,7 @@ next we will log into the neo4j console via the bowser and start learning about 
    2. password: neo4j
    you will be prompted to make a new password
    
-![neo4j_browser_logged_in](img\neo4j_browser_logged_in.png)
+![neo4j_browser_logged_in](img/neo4j_browser_logged_in.png)
    
    
 
