@@ -2,7 +2,7 @@
 
 
 
-Description: 
+## Description
 
 In this lab we will deploy an ec2 sever with Neo4j installed utilizing the Amazon marketplace and AMI (amazon machine Images) which let people create deploy amazon services with addtional software and customizations already installed and ready to go.  
 
