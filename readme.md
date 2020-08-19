@@ -4,7 +4,7 @@
 
 Description: 
 
-In this lab we will deploy an ec2 sever with Neo4j installed utilizing the Amazon marketplace and AMI (amazon machine Images) which let people create  
+In this lab we will deploy an ec2 sever with Neo4j installed utilizing the Amazon marketplace and AMI (amazon machine Images) which let people create deploy amazon services with addtional software and customizations already installed and ready to go.  
 
 
 
@@ -208,7 +208,7 @@ set r.type = line.post_type
                        4. return to neo4j console 
                           check that you can now access the file
         
-                          ```
+                          ```cypher
                           // count of records
                           lOAD CSV FROM "file:///tweets.csv" AS line
                           RETURN count(*);
@@ -220,5 +220,5 @@ set r.type = line.post_type
                           
                           
                           ```
-        
-                       5. use the load file procedure from above to load the additional users and tweets into our neo4j database 
+                     
+                        5. use the load file procedure from above to load the additional users and tweets into our neo4j database
