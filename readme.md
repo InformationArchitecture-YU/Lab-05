@@ -216,7 +216,7 @@ set r.type = line.post_type
                           // check first 5 line-sample with header-mapping
                           LOAD CSV WITH HEADERS FROM "file:///tweets.csv" AS line
                           RETURN line
-                          LIIT 5;
+                          LIMIT 5;
                           
                           
                           ```
