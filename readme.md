@@ -21,9 +21,9 @@ To complete this assignment, please provide an export the images where applicabl
 
 ## 1. Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console
  1. AWS marketplace
-      1. first log into your aws console 
-      2. go to the AWS marketplace https://aws.amazon.com/marketplace
-      3. search for neo4j graph database (make sure to select community edition)
+      1. Log-in to your AWS console
+      2. From the AWS Console, navigate to the AWS marketplace https://aws.amazon.com/marketplace
+      3. Search for neo4j graph database (be sure to select community edition)
 ![AWS marketpalce AMI](img/AWS_marketplace_AMI.png)
 
  2. Subscribe and configure
