@@ -4,8 +4,9 @@
 
 ## Description
 
-In this lab we will deploy an ec2 sever with Neo4j installed utilizing the Amazon marketplace and AMI (amazon machine Images) which let people create deploy amazon services with addtional software and customizations already installed and ready to go.  
+Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will deploy an Amazon EC2 sever with Neo4j installed utilizing the Amazon marketplace and Amazon Machine Images (AMI). AMIs allow consumers to create and deploy Amazon services with addtional software and customizations already installed and ready for use. After installations we will connect to your EC2 Neo4J instance in the cloud using the Neo4J browser connection. 
 
+The Lab will require you to 
 
 
 ### 1. launch an ec2
@@ -222,3 +223,8 @@ set r.type = line.post_type
                           ```
                      
                         5. use the load file procedure from above to load the additional users and tweets into our neo4j database
+
+
+## Resources: 
+
+1. What is Cypher? Cypher is Neo4j’s graph query language that allows users to store and retrieve data from the graph database. Neo4j wanted to make querying graph data easy to learn, understand, and use for everyone, but also incorporate the power and functionality of other standard data access languages. (Source: Cypher Query Langauge[Cypher Query Langauge](https://neo4j.com/developer/cypher/#:~:text=Cypher%20is%20Neo4j's%20graph%20query,other%20standard%20data%20access%20languages.)
