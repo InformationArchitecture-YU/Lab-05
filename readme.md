@@ -117,7 +117,7 @@ create (b)-[t:Teaches]->(IA)
 
 ​      
 
-### 3. Load and Manipulate Data in Neo4j
+### 4. Load and Manipulate Data in Neo4j
 
 1. from URL
 
