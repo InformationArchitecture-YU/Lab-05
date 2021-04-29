@@ -1,16 +1,25 @@
-# Lab: Graph databases and Neo4j 
+# Lab 5: Graph databases and Neo4j 
 
 
 
 ## Description
 
-Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will deploy an Amazon EC2 sever with Neo4j installed utilizing the Amazon marketplace and Amazon Machine Images (AMI). AMIs allow consumers to create and deploy Amazon services with addtional software and customizations already installed and ready for use. After installations we will connect to your EC2 Neo4J instance in the cloud using the Neo4J browser connection. 
+Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will deploy an Amazon EC2 sever with Neo4j installed utilizing the Amazon marketplace and Amazon Machine Images (AMI). AMIs allow consumers to create and deploy Amazon services with addtional software and customizations already installed and ready for use. After installations we will connect to your EC2 Neo4J instance in the cloud using the Neo4J browser connection. Follow the steps outlined below to connect to your Neo4J instance and begin loading and manipulating the data. 
 
-The Lab will require you to 
+To complete this assignment, please provide an export the images where applicable and submit to brandon.chiazza@yu.edu. 
+
+<h2> Contents </h2>
+
+<ol>
+ <li>Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console</li>
+ <li>Use the Neo4J browser to connect to the Neo4j instance you created</li>
+ <li>Run some simple queries in Cypher</li>
+ <li>Load and Manipulate Data in Neo4j</li>
+ <li>Resources</li> 
+</ol>
 
 
-### 1. launch an ec2
-
+## 1. Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console
  1. AWS marketplace
       1. first log into your aws console 
       2. go to the AWS marketplace https://aws.amazon.com/marketplace
@@ -35,7 +44,7 @@ create a new key or select one you have previous created and have access to  (yo
 
 
 
-### 2. load neo4j browser
+### 2. Use the Neo4J browser to connect to the Neo4j instance you created
 
 next we will log into the neo4j console via the bowser and start learning about neo4j
 
@@ -60,7 +69,7 @@ next we will log into the neo4j console via the bowser and start learning about 
 
    
 
-### 2. Cypher:
+### 3. Run some simple queries in Cypher
    instead of SQL neo4j uses the cypher language:
    reference documentation https://neo4j.com/docs/cypher-manual/4.1/
 
@@ -106,7 +115,7 @@ create (b)-[t:Teaches]->(IA)
 
 ​      
 
-### 3. loading data
+### 3. Load and Manipulate Data in Neo4j
 
 1. from URL
 
