@@ -29,7 +29,7 @@ In this first step, we will create a Neo4J installation on an EC2 using Amazon's
 <li>From the AWS Console, navigate to the AWS marketplace https://aws.amazon.com/marketplace</li>
 <li> Search for neo4j graph database (be sure to select community edition)</li>
 </ol>
-![AWS marketpalce AMI](img/AWS_marketplace_AMI.png)
+
 
 **2. Subscribe and configure**
 We will now subscribe to Neo4J service which will walk us through the steps of deploying an EC2 instance with a Special AMI (amazon machine image) which will already contain neo4j running and ready as soon as the EC2 is deployed.
