@@ -22,10 +22,13 @@ To complete this assignment, please provide an export the images where applicabl
 ## 1. Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console
 In this first step, we will create a Neo4J installation on an EC2 using Amazon's Machine Images (pre-configured servers that support your selected software insallation). You will confirm your connectivity via the Neo4J browser. If you do not currently have Neo4J installed, please [download Neo4J](https://neo4j.com/download-neo4j-now/?utm_program=na-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=na-search-graph-databases&utm_adgroup=graph-databases-general&gclid=CjwKCAjwj6SEBhAOEiwAvFRuKI2SzVYSu7Ko_C2p-9TMRdPOsLVz-B7dU7WM9fPY5t6BsgTJrphMXBoCbW0QAvD_BwE). 
 
+
 **1. AWS marketplace**
-      1. Log-in to your AWS console
-      2. From the AWS Console, navigate to the AWS marketplace https://aws.amazon.com/marketplace
-      3. Search for neo4j graph database (be sure to select community edition)
+<ol>
+<li>Log-in to your AWS console</li>
+<li>From the AWS Console, navigate to the AWS marketplace https://aws.amazon.com/marketplace</li>
+<li> Search for neo4j graph database (be sure to select community edition)</li>
+</ol>
 ![AWS marketpalce AMI](img/AWS_marketplace_AMI.png)
 
 **2. Subscribe and configure**
