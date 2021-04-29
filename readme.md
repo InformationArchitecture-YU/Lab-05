@@ -81,7 +81,7 @@ In this next section, we will log into the Neo4J console via the Neo4J Browser. 
 
 ```cypher
   // lets find all nodes in our database
-  match (n)  // () stands or node and n is the variable we bind the patern too
+  match (n)  // () stands for node and n is the variable we bind the pattern too
   return n // if we wanted only 1 field (think collumn) we could specify that with dot notation //n.{feild name}
 ```
 
