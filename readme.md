@@ -20,7 +20,7 @@ To complete this assignment, please provide an export the images where applicabl
 
 
 ## 1. Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console
-In this first step, we will create a Neo4J installation on an EC2 using Amazon's Machine Images (pre-configured servers that support your selected software insallation). You will confirm your connectivity via the Neo4J browser. If you do not currently have Neo4J installed, please (download Neo4J)[https://neo4j.com/download-neo4j-now/?utm_program=na-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=na-search-graph-databases&utm_adgroup=graph-databases-general&gclid=CjwKCAjwj6SEBhAOEiwAvFRuKI2SzVYSu7Ko_C2p-9TMRdPOsLVz-B7dU7WM9fPY5t6BsgTJrphMXBoCbW0QAvD_BwE]. 
+In this first step, we will create a Neo4J installation on an EC2 using Amazon's Machine Images (pre-configured servers that support your selected software insallation). You will confirm your connectivity via the Neo4J browser. If you do not currently have Neo4J installed, please [download Neo4J](https://neo4j.com/download-neo4j-now/?utm_program=na-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=na-search-graph-databases&utm_adgroup=graph-databases-general&gclid=CjwKCAjwj6SEBhAOEiwAvFRuKI2SzVYSu7Ko_C2p-9TMRdPOsLVz-B7dU7WM9fPY5t6BsgTJrphMXBoCbW0QAvD_BwE). 
 
 **1. AWS marketplace**
       1. Log-in to your AWS console
@@ -49,7 +49,7 @@ create a new key or select one you have previous created and have access to  (yo
 
 ### 2. Use the Neo4J browser to connect to the Neo4j instance you created
 
-In this next section, we will log into the Neo4J console via the Neo4J Browser. Note: because of the way Neo4J authenticates using any browser besides chrome can be difficult unless you log into the server and create a signed ssl certificate. See the (reference article) [https://medium.com/neo4j/getting-certificates-for-neo4j-with-letsencrypt-a8d05c415bbd] in you want to look into sll certificates.
+In this next section, we will log into the Neo4J console via the Neo4J Browser. Note: because of the way Neo4J authenticates using any browser besides chrome can be difficult unless you log into the server and create a signed ssl certificate. See the [reference article](https://medium.com/neo4j/getting-certificates-for-neo4j-with-letsencrypt-a8d05c415bbd) in you want to look into sll certificates.
 
 2. http://{public dns}:7474/ 
    head to the EC2 console so you can get the dns of your new EC2 sever and then put it into chrome you should see the screen below 
