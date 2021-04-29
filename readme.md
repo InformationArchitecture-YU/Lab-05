@@ -2,13 +2,13 @@
 
 
 
-## Description
+## Overview
 
 Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will deploy an Amazon EC2 sever with Neo4j installed utilizing the Amazon marketplace and Amazon Machine Images (AMI). AMIs allow consumers to create and deploy Amazon services with addtional software and customizations already installed and ready for use. After installations we will connect to your EC2 Neo4J instance in the cloud using the Neo4J browser connection. Follow the steps outlined below to connect to your Neo4J instance and begin loading and manipulating the data. 
 
 To complete this assignment, please provide an export the images where applicable and submit to brandon.chiazza@yu.edu. 
 
-<h2> Contents </h2>
+<h3> Contents </h3>
 
 <ol>
  <li>Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console</li>
