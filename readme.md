@@ -4,74 +4,66 @@
 
 ## Overview
 
-Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will deploy an Amazon EC2 sever with Neo4j installed utilizing the Amazon marketplace and Amazon Machine Images (AMI). AMIs allow consumers to create and deploy Amazon services with addtional software and customizations already installed and ready for use. After installations we will connect to your EC2 Neo4J instance in the cloud using the Neo4J browser connection. Follow the steps outlined below to connect to your Neo4J instance and begin loading and manipulating the data. 
+Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will start a Neo4j server utlizings  Neo4j AuraDB, Neo4j’s fully managed graph database as a service (DBaaS) offering.  After installation we will connect to the Neo4J instance in the cloud using the Neo4J browser. Follow the steps outlined below to connect to your Neo4J instance and begin loading and manipulating the data. 
 
 To complete this assignment, please provide an export the images where applicable and submit to brandon.chiazza@yu.edu. 
 
-<h3> Contents </h3>
+### Contents
 
-<ol>
- <li>Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console</li>
- <li>Use the Neo4J browser to connect to the Neo4j instance you created</li>
- <li>Run some simple queries in Cypher</li>
- <li>Load and Manipulate Data in Neo4j</li>
- <li>Resources</li> 
-</ol>
-
-
-## 1. Launch an EC2 server with Neo4J Installed from the AWS Marketplace in the Console
-In this first step, we will create a Neo4J installation on an EC2 using Amazon's Machine Images (pre-configured servers that support your selected software insallation). You will confirm your connectivity via the Neo4J browser. If you do not currently have Neo4J installed, please [download Neo4J](https://neo4j.com/download-neo4j-now/?utm_program=na-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=na-search-graph-databases&utm_adgroup=graph-databases-general&gclid=CjwKCAjwj6SEBhAOEiwAvFRuKI2SzVYSu7Ko_C2p-9TMRdPOsLVz-B7dU7WM9fPY5t6BsgTJrphMXBoCbW0QAvD_BwE). 
-
-
-**1. AWS marketplace**
-<ol>
-<li>Log-in to your AWS console</li>
-<li>From the AWS Console, navigate to the AWS marketplace https://aws.amazon.com/marketplace</li>
-<li> Search for neo4j graph database (be sure to select community edition)</li>
-</ol>
-
-
-**2. Subscribe and configure**
-We will now subscribe to Neo4J service which will walk us through the steps of deploying an EC2 instance with a Special AMI (amazon machine image) which will already contain neo4j running and ready as soon as the EC2 is deployed.
-   
-   1. **configure**
-           in the configure you will select your image  software versions and AWS location please mimic the selections below 
-
-    ![configure](img/configure.png)
-
-   2. **create security group and select options**
-        ![Launch](img/Launch.png)
-
-   3. **create or select key**
-create a new key or select one you have previous created and have access to  (you will need this to log into your EC2)
-        ![keygen](img/keygen.png)
-   4. **deploy**
-        select deploy and your new neo4j EC2 will be ready to use in a min or two
+1. sign up for Neo4j AuraDB and launch a free tier instance
+2. Use Neo4J browser to connect to the Neo4j console
+3. Run some simple queries in Cypher
+4. Load and Manipulate Data in Neo4j
+5. Resources
 
 
 
-### 2. Use the Neo4J browser to connect to the Neo4j instance you created
+## 1. Sign up for Neo4j AuraDB and launch a free tier instance
+In this first step, we will create a Neo4J installation on Neo4j AuraDB. You will confirm your connectivity via the Neo4J desktop aplication. If you do not currently have Neo4J installed, please [download Neo4J](https://neo4j.com/product/developer-tools/#desktop). 
+
+### **1. create an acount on neo4j.com**,
+
+1. *head to https://neo4j.com/ and select the first option under gettting started*
+   ![get-started](img/get_started.png)
+2. create and acount and log in 
+
+### **2. Launch and configure**
+We will now launch an Neo4j free tier instance 
+
+1. **select new instance**
+ On the top of the page select the new instance button and launch a new instance with the following options:
+	* AuraDB Free - make sure you select the free teir no credit card option
+	* Name: Lab-5
+	* region: select the closest region to u
+	* starting dataset: blank (we will be loading our own data set in the steps below)
+2. Save credentials
+Before being allowed to launch your instance you will have to confirm you saved your Neo4j password in a safe location. **make sure you actually do before clickign continue**
+3. Wait for you instance to launch. This can take several mins. 
+
+
+
+
+## 2. Use the Neo4J browser aplication to connect to the Neo4j instance you created
 
 In this next section, we will log into the Neo4J console via the Neo4J Browser. Note: because of the way Neo4J authenticates using any browser besides chrome can be difficult unless you log into the server and create a signed ssl certificate. See the [reference article](https://medium.com/neo4j/getting-certificates-for-neo4j-with-letsencrypt-a8d05c415bbd) in you want to look into sll certificates.
 
-2. http://{public dns}:7474/ 
-   head to the EC2 console so you can get the dns of your new EC2 sever and then put it into chrome you should see the screen below 
+1. Select Query from the server options
+   Wait on the AuraDB main page fore your sever to confirm it is running 
 
-   ![neo4j_browser](img/neo4j_browser.png)
-   
-3. log into server
+![runing](img/serverrunning.png)
+
+2. log into server
 
    1. user: neo4j
 
-   2. password: neo4j
-   you will be prompted to make a new password
+   2. password: **saved from step above**
    
 
 ![neo4j_browser_logged_in](img/neo4j_browser_logged_in.png)
 
    
 
-### 3. Run some simple queries in Cypher
+## 3. Run some simple queries in Cypher
    instead of SQL neo4j uses the cypher language:
    reference documentation https://neo4j.com/docs/cypher-manual/4.1/
 
@@ -91,12 +83,12 @@ In this next section, we will log into the Neo4J console via the Neo4J Browser. 
 ```cypher
  //creating nodes
  
- create (j:Person{name:"Jacob",age:34,role:"graduate student"})
+ create (j:Person{name:"Jacob",age:34,role:"Professor"}) //
    
  create (IA:class{name:"information architecture",program:"Data analytics & visualisation"})
  
  //creating relationships
- create (j)-[t:TAs]->(IA)
+ create (j)-[t:Teaches]->(IA)
  return j,t,IA 
 ```
 
@@ -119,24 +111,27 @@ create (b)-[t:Teaches]->(IA)
 
 ### 4. Load and Manipulate Data in Neo4j
 
-1. from URL
+Loading and maipulating data from URL
 
 ```cypher
-
 //first sanity checking our document and our connection
 
 // count of records
 lOAD CSV FROM "https://raw.githubusercontent.com/fivethirtyeight/russian-troll-tweets/master/IRAhandle_tweets_10.csv" AS line
+WITH row LIMIT 28900
 RETURN count(*);
+```
 
+```cypher
 // check first 5 line-sample with header-mapping
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/fivethirtyeight/russian-troll-tweets/master/IRAhandle_tweets_10.csv" AS line
 RETURN line
 LIMIT 5;
+```
+creating constrains
 
+```cypher
 
-
-//now load data
 //first we create constraints to prevent the creation of duplicate nodes  
 
 CREATE CONSTRAINT Tweet_id
@@ -146,11 +141,15 @@ ASSERT n.id IS UNIQUE;
 CREATE CONSTRAINT user_id
 ON (n:User)
 ASSERT n.id is unique;
+```
 
+Data loading using cypher
 
+```cypher
 //create users
 
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/fivethirtyeight/russian-troll-tweets/master/IRAhandle_tweets_10.csv" AS line
+WITH line LIMIT 28900
 merge (u:User {id :line.external_author_id})
 set u.name = line.author
 
@@ -158,6 +157,7 @@ set u.name = line.author
 //create tweets 
 
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/fivethirtyeight/russian-troll-tweets/master/IRAhandle_tweets_10.csv" AS line
+WITH line LIMIT 28900
 merge (t:Tweet {id :line.tweet_id})
 set t.text = line.content ;
 
@@ -185,55 +185,38 @@ set r.type = line.post_type
         match (n:User{id:"2912754262"})-[r]-(t) return n,r,t limit 100
         ```
         
-     3. on your own query the number of users and the average number of tweets
-     
+     3. **on your own query the number of users and the average number of tweets**
+     [cypher reference](https://neo4j.com/docs/cypher-manual/current/functions/aggregating/)
+        
         
      
   3. Loading data from file:
-        You can also use the same procedure above on a file instead of a URL. To do this we  need to transfer the file to the NEO4j inbox on our ec2
+        You can also use NEO4js data importer and map the data from CSV to graph format and load it into the DB. 
+        Here is a short video demoing the tool.
 
-          1. send data file to server
-                Their are multiple ways of transferring files to your EC2 instance. two are well described in this article:
-                https://asf.alaska.edu/how-to/data-recipes/moving-files-into-and-out-of-an-aws-ec2-instance-windows/
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vI2XZOf4hVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-          2. download data 
-                For this next portion we will utilize selection of additional  twitter data from Kaggle
+  1. Download Data: 
+          For this next portion we will utilize selection of additional  twitter data from Kaggle
+                
+          https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
+          it is in the data  folder of this repo [data](data/tweet-data.csv)
 
-                https://www.kaggle.com/darkknight98/twitter-data?select=tweet_data.csv 
-                it is in the data  folder of this repo [data](data/tweet-data.csv)
-        
-                  1. using putty secure copy
-        
-                       1. make sure you have the key you associated with the EC2 at launch .pkk
-        
-                       2. Copy file to home directory of ec2
-                          because of permissions we won't move the file into our home directory and the login and move the file where it needs to be for neo4j to access it
-        
-                              1. in the command line
-                                 `pscp -i {PATH TO KEY} {PATH TO .CSV}  ubuntu@{EC2 PUBLIC DNS}:tweets.csv`
-        
-                       3. SSH into ec2 using putty 
-        
-                              1. move file to proper location 
-                                 `mv tweet_data.csv /var/lib/neo4j/import`
-        
-                       4. return to neo4j console 
-                          check that you can now access the file
-        
-                          ```cypher
-                          // count of records
-                          lOAD CSV FROM "file:///tweets.csv" AS line
-                          RETURN count(*);
-                          
-                          // check first 5 line-sample with header-mapping
-                          LOAD CSV WITH HEADERS FROM "file:///tweets.csv" AS line
-                          RETURN line
-                          LIMIT 5;
-                          
-                          
-                          ```
-                     
-                        5. use the load file procedure from above to load the additional users and tweets into our neo4j database
+        2. go to the importer from the auraDB page:
+              ![](img\serverrunning_importhighlight.png)
+              
+        3. Add the File:
+           In the left bar either drop the downloaded **tweet_data.csv** or browse and add the file. 
+           
+        4. Define your nodes and relationships:
+              Using the data model we created above define your data model. you should utlize _unit_id as ID it should look somthing like this:
+              ![](img/data_model.png)
+
+        5. once your finished mapping your nodes propeteries run import 
+
+              
+
+
 
 
 ## Resources: 
