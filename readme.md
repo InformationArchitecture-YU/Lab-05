@@ -4,9 +4,9 @@
 
 ## Overview
 
-Neo4J is a native NoSQL, graph database platform using Cypher querying language<sup>1</sup>. Graph databases are optimized for managing relationships and networks. In this lab we will start a Neo4j server utlizings  Neo4j AuraDB, Neo4j’s fully managed graph database as a service (DBaaS) offering.  After installation we will connect to the Neo4J instance in the cloud using the Neo4J browser. Follow the steps outlined below to connect to your Neo4J instance and begin loading and manipulating the data. 
+Neo4J is a NoSQL graph database that utilizes the Cypher query language. Graph databases are, optimized for managing relationships and networks. In this lab, we will start a Neo4j server using Neo4j AuraDB, Neo4j’s fully managed graph database as a service (DBaaS) offering. After installation, we will connect to the Neo4J instance in the cloud using the Neo4J browser. Follow the steps outlined below to connect to your Neo4J instance and begin loading and manipulating the data.
 
-To complete this assignment, please provide an export the images where applicable and submit to brandon.chiazza@yu.edu. 
+To complete this assignment, please provide an export of the images where applicable and submit them to [brandon.chiazza@yu.edu](mailto:brandon.chiazza@yu.edu).
 
 ### Contents
 
@@ -19,7 +19,7 @@ To complete this assignment, please provide an export the images where applicabl
 
 
 ## 1. Sign up for Neo4j AuraDB and launch a free tier instance
-In this first step, we will create a Neo4J installation on Neo4j AuraDB. You will confirm your connectivity via the Neo4J desktop aplication. If you do not currently have Neo4J installed, please [download Neo4J](https://neo4j.com/product/developer-tools/#desktop). 
+In this first step, we will create a Neo4J installation on Neo4j AuraDB. You will confirm your connectivity via the Neo4J desktop aplication. 
 
 ### **1. create an acount on neo4j.com**,
 
@@ -31,15 +31,14 @@ In this first step, we will create a Neo4J installation on Neo4j AuraDB. You wil
 We will now launch an Neo4j free tier instance 
 
 1. **select new instance**
- On the top of the page select the new instance button and launch a new instance with the following options:
-	* AuraDB Free - make sure you select the free teir no credit card option
-	* Name: Lab-5
-	* region: select the closest region to u
-	* starting dataset: blank (we will be loading our own data set in the steps below)
+   On the top of the page, select the new instance button and launch a new instance with the following options:
+	  * AuraDB Free - make sure you select the free tier no credit card option
+	  * Name: Lab-5
+	  * Region: select the closest region to you
+	  * starting dataset: blank (we will be loading data in the steps below)
 2. Save credentials
-Before being allowed to launch your instance you will have to confirm you saved your Neo4j password in a safe location. **make sure you actually do before clickign continue**
-3. Wait for you instance to launch. This can take several mins. 
-
+   Before being allowed to launch your instance, you will have to confirm you saved your Neo4j password in a safe location. **make sure you do before clicking continue**
+3. Wait for your instance to launch (this can take several minutes). 
 
 
 
@@ -69,7 +68,7 @@ In this next section, we will log into the Neo4J console via the Neo4J Browser. 
 
    1. finding nodes and relationships
 
-   to find nodes/relationships and patterns between them we us the match clause
+   to find nodes/relationships and patterns between them we use the match clause
 
 ```cypher
   // lets find all nodes in our database
@@ -83,12 +82,12 @@ In this next section, we will log into the Neo4J console via the Neo4J Browser. 
 ```cypher
  //creating nodes
  
- create (j:Person{name:"Jacob",age:34,role:"Professor"}) //
+ create (j:Person{name:"Jacob",age:34,role:"student"}) //
    
  create (IA:class{name:"information architecture",program:"Data analytics & visualisation"})
  
  //creating relationships
- create (j)-[t:Teaches]->(IA)
+ create (j)-[t:takes]->(IA)
  return j,t,IA 
 ```
 
